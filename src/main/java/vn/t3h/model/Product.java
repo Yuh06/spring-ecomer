@@ -64,9 +64,13 @@ public class Product implements Serializable {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
 	@Column(name="create_time")
 	private Date createTime;
+	private Object lable;
 	
 	public String statusLable() {
 		return mapStatus().get(status);
+	}
+	public String lableCategory() {
+		return ((Map<Integer, String>) getLable()).get(lable);
 	}
 	
 	public Map<Integer, String> mapStatus() {
